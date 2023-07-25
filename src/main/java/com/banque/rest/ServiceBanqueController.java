@@ -1,6 +1,7 @@
 package com.banque.rest;
 
 import com.banque.Login;
+import com.banque.Subscribe;
 import com.banque.entity.CompteEntity;
 import com.banque.entity.ICompteEntity;
 import com.banque.entity.IOperationEntity;
@@ -50,6 +51,25 @@ public class ServiceBanqueController {
         // ...
     	System.out.println(login);
         return serviceAuthentification.authentifier(login.getUser_name(), login.getPassword()).getId();
+    	//return "Le login est "+unLogin+" et le mdp est "+unMdp;
+    	
+    }
+    
+    @PostMapping("/souscrire")
+    public Integer authentifier( Subscribe subscribe) throws Exception {
+        // NE JAMAIS FAIRE CELA DANS LA REALITE
+        // NE JAMAIS LOGUER/AFFICHER LE MOT DE PASSE
+        // Logique d'authentification
+        // ...
+    	
+    	//System.out.println(subscribe);
+    	
+    	if (serviceAuthentification.souscrire(subscribe)) {
+    		return serviceAuthentification.authentifier(subscribe.getUser_name(), subscribe.getUser_password()).getId();
+		}
+    	
+    	return -1;
+        //return serviceAuthentification.authentifier(login.getUser_name(), login.getPassword()).getId();
     	//return "Le login est "+unLogin+" et le mdp est "+unMdp;
     	
     }
