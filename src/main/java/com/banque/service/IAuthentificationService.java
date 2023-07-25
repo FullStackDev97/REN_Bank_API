@@ -5,6 +5,8 @@
  */
 package com.banque.service;
 
+import com.banque.Subscribe;
+import com.banque.dao.ex.ExceptionDao;
 import com.banque.entity.IUtilisateurEntity;
 import com.banque.service.ex.AuthentificationException;
 import com.banque.service.ex.ErreurTechniqueException;
@@ -32,6 +34,10 @@ public interface IAuthentificationService {
 	public abstract IUtilisateurEntity authentifier(String pLogin,
 			String pPassword) throws AuthentificationException,
 			ErreurTechniqueException;
+
+	
+	public abstract boolean souscrire(Subscribe subscriber)throws AuthentificationException,
+	ErreurTechniqueException, ExceptionDao;;
 
 }
 //com.banque.service.IAuthentificationService.authentifier(String pLogin, String pPassword)
